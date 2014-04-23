@@ -1,21 +1,22 @@
 <?php
+
 /**
-* This is core configuration file.
-*
-* Use it to configure core behavior of Google API plugin.
-*
-* Licensed under The GPL V3 License
-* For full copyright and license information, please see the LICENSE.txt
-* Redistributions of files must retain the above copyright notice.
-*
-* @package       GoogleAPI.Config
-* @license       http://opensource.org/licenses/GPL-3.0 GPL V3 License
-*/
+ * This is core configuration file.
+ *
+ * Use it to configure core behavior of Google API plugin.
+ *
+ * Licensed under The GPL V3 License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @package       GoogleAPI.Config
+ * @license       http://opensource.org/licenses/GPL-3.0 GPL V3 License
+ */
+
 /**
-* `GoogleAPI.client.ApplicationName` define the name of application
-*/
-Configure::write('GoogleAPI.client.ApplicationName', 'Client_Library_Examples');
-/**
-* `GoogleAPI.client.DeveloperKey` define the name of application
-*/
-Configure::write('GoogleAPI.client.DeveloperKey', 'YOUR_APP_KEY');
+ * `GoogleAPI.client` define the options of client
+ */
+Configure::write('GoogleAPI.client', array(
+	'ApplicationName' => 'Client_Library_Examples',
+	'DeveloperKey' => 'YOUR_APP_KEY'
+));
