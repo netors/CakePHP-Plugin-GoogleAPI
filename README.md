@@ -7,7 +7,7 @@ The pull-request are accepted.
 You can send me a e-mail or private message.
 
 ## Requirements ##
-* For Google API Client Library
+* For [Google API Client Library](https://github.com/google/google-api-php-client)
 	* [PHP 5.2.1 or higher](http://www.php.net/)
 	* [PHP JSON extension](http://php.net/manual/en/book.json.php)
 * For my plugin
