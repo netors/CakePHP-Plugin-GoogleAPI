@@ -18,5 +18,6 @@ $config = array('GoogleAPI'=>array(
 	'client' => array(
 		'ApplicationName' => 'Client_Library_Examples',
 		'DeveloperKey' => 'YOUR_APP_KEY'
-	)
+	),
+	//'Service' =>array('YouTube')
 ));
