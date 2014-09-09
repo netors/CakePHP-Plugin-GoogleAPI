@@ -106,6 +106,7 @@ foreach ($results as $item) {
 }
 ```
 
+
 ### Advanced uses ###
 If you want to manually load classes, use this function:
 ```PHP
