@@ -17,7 +17,7 @@ class GoogleAPIComponent extends Component
 	public $Service = array();
 
 	public $Auth = array();
-	
+
 	public $settings = array();
 
 	/**
@@ -29,12 +29,21 @@ class GoogleAPIComponent extends Component
 			'DeveloperKey' => 'YOUR_APP_KEY'
 		)
 	);
-	
+
 	public function __construct($collection, $settings = array()) {
 		// Merge settings
 		$this->settings = array_merge($this->_default, Configure::read('GoogleAPI') , $settings);
 		// Create a new Google Client
 		$this->googleClient = $this->new_Google_Client();
+
+        $credentials = new Google_Auth_AssertionCredentials(
+            Configure::read('CalendarApi.email'),
+            array('https://www.googleapis.com/auth/calendar'),
+            file_get_contents(Configure::read('CalendarApi.privateKey')),
+            "notasecret"
+        );
+        $this->googleClient->setAssertionCredentials($credentials);
+
 		// If success
 		if (isset($this->googleClient)) {
 			// For each Service found in settings
@@ -47,12 +56,12 @@ class GoogleAPIComponent extends Component
 			}
 		}
 	}
-	
+
 	/**
 	 * Create a new Google Client
-	 * 
+	 *
 	 * @param boolean $useConfig If he use the config (core.php) for define clients options or not
-	 * 
+	 *
 	 * @return Google_Client or null
 	 */
 	public function new_Google_Client($useConfig = true) {
@@ -75,14 +84,14 @@ class GoogleAPIComponent extends Component
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Import a file from GoogleAPI
 	 *
 	 * Import a file from GoogleAPI and redefine include path temporarily to avoid problems when it included other files
-	 * 
+	 *
 	 * @param string $file The name of file, for example import('Google/Client') will load GoogleAPI/src/Google/Client.php
-	 * 
+	 *
 	 * @return boolean success
 	 */
 	public static function import($file) {
